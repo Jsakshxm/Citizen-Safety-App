@@ -20,8 +20,8 @@ const Navbar = () => {
             <Link href="/FraudDetection">FraudDetection</Link>
           </li> */}
           {/* <li className="">Bitcoin Wallets</li> */}
-          <li className="">Fraud Reporting</li>
-          <li className="">Education</li>
+          <li className=""> <Link href="/FraudReporting">Fraud Reporting</Link></li>
+          <li className=""> <Link href="/Education">Education</Link></li>
         </ul>
     </header>
   );
