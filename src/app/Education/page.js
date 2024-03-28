@@ -8,7 +8,8 @@ const page = () => {
     <div>
       <Navbar classname="" />
       <div className="flex ">
-        <Topics /> <LatestUpdate></LatestUpdate>
+        <Topics /> 
+        <LatestUpdate></LatestUpdate>
       </div>{" "}
     </div>
   );

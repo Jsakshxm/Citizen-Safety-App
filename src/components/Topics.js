@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 
 const Topics = () => {
   // Example data for the table, which can be replaced or extended.
@@ -9,10 +10,11 @@ const Topics = () => {
     { guide: "Social Engineering", story: "The Phone Call", forum: "Share Stories", achievement: false },
     { guide: "Malware Protection", story: "The Infected File", forum: "Ask for Help", achievement: true },
     { guide: "Data Encryption", story: "The Stolen Laptop", forum: "Share Advice", achievement: false },
+    { guide: "Catfishing", story: "The Stolen Laptop", forum: "Share Advice", achievement: false },
   ];
 
   return (
-    <div className='w-[690px] m-2 p-2'>
+    <div className='w-[690px] m-2 p-2 grow'>
       <h1 className='text-3xl font-normal'>Explore Security Topics</h1>
       <table className='w-full p-2 m-2 mt-4 text-left'>
         <thead>
@@ -26,7 +28,7 @@ const Topics = () => {
         <tbody>
           {topicsData.map((topic, index) => (
             <tr key={index} className="p-2 m-2 ">
-              <td>{topic.guide}</td>
+              <td><Link href={topic.guide}>{topic.guide}</Link></td>
               <td>{topic.story}</td>
               <td>{topic.forum}</td>
               <td>{topic.achievement ? '✅' : '❌'}</td>

@@ -29,6 +29,10 @@ const page = () => {
     }
   }, [searchQuery]);
 
+  useEffect(()=>{
+
+  },[]);
+
   return (
     <>
       <Navbar></Navbar>
