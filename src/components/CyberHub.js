@@ -1,5 +1,6 @@
 "use client"
 import CyberCard from './CyberCard'
+import { useState } from 'react'
 
 const CyberHub = () => {
     const [currentArticle, setCurrentArticle] = useState(null)
