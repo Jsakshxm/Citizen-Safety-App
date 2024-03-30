@@ -7,7 +7,7 @@ const Footer = () => {
         <div className="flex flex-wrap justify-between">
           <div className="w-full md:w-1/3 lg:w-1/4 mb-4 md:mb-0">
             <h2 className="text-white text-lg font-semibold mb-4">
-              Online Fraud Detection and Education
+              Edugaurd Online Fraud Detection and Education
             </h2>
             <p className="text-gray-400">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis

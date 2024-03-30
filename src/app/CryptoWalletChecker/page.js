@@ -13,6 +13,7 @@ const page = () => {
   const [address, setaddress] = useState("");
   const [details, setdetails] = useState([]);
   const [reports, setreports] = useState([]);
+  const [Cryptotype, setCryptotype] = useState("");
 
   useEffect(() => {}, []);
   const fetchData = async () => {
@@ -20,7 +21,7 @@ const page = () => {
       console.log(address);
       const client = new CovalentClient("cqt_rQ933Q374rPQjkc9xX8Kq4HVkJyH");
       const resp = await client.BalanceService.getTokenBalancesForWalletAddress(
-        "btc-mainnet",
+        Cryptotype,
         address,
         { quoteCurrency: "INR" }
       );
@@ -51,6 +52,9 @@ const page = () => {
     //     setdetails(resp.data.items);
     // }
   };
+  const handleSelectChange = (event) => {
+    setCryptotype(event.target.value);
+  };
   return (
     <>
       <Navbar></Navbar>
@@ -78,6 +82,19 @@ const page = () => {
             className="fixed p-2 w-[300px] lg:w-[500px] rounded-md border mt-30 hover:border-blue-500 hover:shadow-blue-500 active:border-blue-500 hover:shadow-sm border-2"
             placeholder="Enter Wallet Address"
           />
+          <select className="fixed mt-16 rounded-md p-2" value={Cryptotype} onChange={handleSelectChange}>
+            {/* Default empty option */}
+            <option value="btc-mainnet p-2">Select Wallet type</option>
+            {/* Other options */}
+            <option value="btc-mainnet">Bitcoin Wallet</option>
+            <option value="eth-mainnet">Ethereum</option>
+            <option value="matic-mainnet">Polygon</option>
+            <option value="bsc-mainnet">BNB Smart Chain (BSC)</option>
+            <option value="avalanche-mainnet">Avalanche C-Chain</option>
+            <option value="optimism-mainnet">Optimism</option>
+            <option value="fantom-mainnet">Fantom</option>
+            <option value="solana-mainnet">Solana</option>
+          </select>
           <button
             onClick={fetchData}
             type="submit"
@@ -86,8 +103,7 @@ const page = () => {
             <i className="fa-solid fa-magnifying-glass"></i>
           </button>
         </div>
-        <div className="fixed left-0 top-42 grid grid-cols-1 lg:grid-cols-3 gap-10 pt-10 p-4 lg:p-10 mt-4 ml-4 lg:ml-14 z-100 text-white">
-          <div className="bg-[#0f172a] p-4 rounded-md">
+        <div className="fixed mt-28 ml-4 lg:ml-24 text-white bg-[#0f172a] p-4 rounded-md">
             {details.map((detail, index) => (
               <div key={index}>
                 <Image
@@ -102,8 +118,8 @@ const page = () => {
                 {/* <h1 className="">{detail.balance}</h1> */}
                 <h1 className="">Current Balance: {detail.quote} INR</h1>
                 <h1>
-                  {detail.is_spam ? "spam" : "No spam"} and reports found in last
-                  transaction.
+                  {detail.is_spam ? "spam" : "No spam"} and reports found in
+                  last transaction.
                 </h1>
                 {/* <h1>{detail.last_transferred_at}</h1> */}
                 {/* <h1>{detail.balance}</h1> */}
@@ -111,10 +127,15 @@ const page = () => {
               </div>
             ))}
             {reports.map((report, index) => (
-              <h1 key={index}>{report.Report_Message? report.Report_Message+" previous report found .":""}</h1>
+              <h1 key={index}>
+                {report.Report_Message
+                  ? report.Report_Message + " previous report found ."
+                  : ""}
+              </h1>
             ))}
           </div>
-        </div>
+
+          
       </div>
     </>
   );
