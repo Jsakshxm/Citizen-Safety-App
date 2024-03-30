@@ -2,14 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
-
 .concert-one{
   font-family: "Concert One", sans-serif;
   font-weight: 400;
   font-style: normal;
 }
 
-
+#myVideo {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+}
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;

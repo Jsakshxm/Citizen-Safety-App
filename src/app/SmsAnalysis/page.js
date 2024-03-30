@@ -43,6 +43,10 @@ const page = () => {
           console.log("Error fetching data:", error);
         } else {
           setSearchResults2(data);
+          if (data == null || data == undefined || data == "") {
+            setSearchResults2([{ Analysis: "No Analysis Found" }]);
+        }
+           console.log(data);
         }
       }
     };
@@ -87,11 +91,35 @@ const page = () => {
             <ul className="h-[185px] text-white overflow-hidden px-2">
             {searchQuery2 &&
               searchResults2.map((result) => (
+                <div  key={result.id} className={` border rounded-md flex p-2 m-1 hover:bg-white hover:text-black cursor-pointer ${result.Analysis==="Fraud"?"text-red-300": result.Analysis==="Poetntial"}`}>
+                    <div className={`pr-2 `}>{result.Analysis}</div>
+                    {/* <div>{result["Principal Entity Name"]}</div> */}
+                </div>
+              ))}
+          </ul>
+        </div>
+
+        <div className="w-[300px] lg:w-[500px]">
+            <input type="tel" onChange={(e)=>{setSearchQuery2(e.target.value);}} className="p-2 rounded-md mx-2 w-full" name="" id="" placeholder="Enter Mobile Number"/>
+            <button onClick={handlesubmit} className="bg-blue-500 hover:bg-blue-700 rounded-3xl p-2 px-12 text-white text-lg m-2" type="submit">Submit</button>
+
+            <ul className="h-[185px] text-white overflow-hidden px-2">
+            {searchQuery2 &&
+              searchResults2.map((result) => (
                 <div key={result.id} className=" border rounded-md flex p-2 m-1 hover:bg-white hover:text-black cursor-pointer">
                     <div className="pr-2">{result.Analysis}</div>
                     {/* <div>{result["Principal Entity Name"]}</div> */}
                 </div>
               ))}
+          </ul>
+        </div>
+
+        <div className="text-white">
+          <h2>Sms Classification is done as:</h2>
+          <ul>
+            <li>No Risk</li>
+            <li>Potential Risk</li>
+            <li>Fraud</li>
           </ul>
         </div>
         </div>
