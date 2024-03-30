@@ -86,7 +86,7 @@ const page = () => {
             <i className="fa-solid fa-magnifying-glass"></i>
           </button>
         </div>
-        <div className="fixed left-0 top-42 grid grid-cols-1 lg:grid-cols-3 gap-10 pt-10 p-4 lg:p-10 mt-4 ml-14 z-100 text-white">
+        <div className="fixed left-0 top-42 grid grid-cols-1 lg:grid-cols-3 gap-10 pt-10 p-4 lg:p-10 mt-4 ml-4 lg:ml-14 z-100 text-white">
           <div className="bg-[#0f172a] p-4 rounded-md">
             {details.map((detail, index) => (
               <div key={index}>
@@ -100,7 +100,7 @@ const page = () => {
                   {detail.contract_name} - {detail.contract_ticker_symbol}
                 </h1>
                 {/* <h1 className="">{detail.balance}</h1> */}
-                <h1 className="">Current Balance:{detail.quote}</h1>
+                <h1 className="">Current Balance: {detail.quote} INR</h1>
                 <h1>
                   {detail.is_spam ? "spam" : "No spam"} and reports found in last
                   transaction.
