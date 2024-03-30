@@ -130,6 +130,22 @@ export default function Home() {
       </div>
       <div className="bg2"></div>
 
+      <div className="flex w-full justify-center items-center px-4 lg:px-24 bg-darkbg gap-4">
+        <div className="bg-gray-100 p-10 rounded-md max-w-[500px] ">
+        <h1 className="font-concert-one text-xl">Url Detection Backend Features</h1>
+        <p>Spam Detection via :</p>
+        <p>Number of Scripts running and popups</p>
+        <p>Grammatical mistakes</p>
+        <p>Extreme url redirects in huge quantity</p>
+        <p>No About us page and agressive ads</p>
+        </div>
+        <div className="bg-gray-100 p-10 rounded-md max-w-[500px] ">
+        <h1 className="font-concert-one text-xl"> Crypto Features</h1>
+        <p>Number of </p>
+        <p></p>
+        </div>
+      </div>
+
       <Footer />
     </>
   );
