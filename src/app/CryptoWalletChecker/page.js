@@ -102,7 +102,7 @@ const page = () => {
                 {/* <h1 className="">{detail.balance}</h1> */}
                 <h1 className="">Current Balance:{detail.quote}</h1>
                 <h1>
-                  {detail.is_spam ? "spam" : "No spam"} reports found in last
+                  {detail.is_spam ? "spam" : "No spam"} and reports found in last
                   transaction.
                 </h1>
                 {/* <h1>{detail.last_transferred_at}</h1> */}
@@ -111,7 +111,7 @@ const page = () => {
               </div>
             ))}
             {reports.map((report, index) => (
-              <h1 key={index}>{report.Report_Message? report.Report_Message+" previous report found":""}</h1>
+              <h1 key={index}>{report.Report_Message? report.Report_Message+" previous report found .":""}</h1>
             ))}
           </div>
         </div>

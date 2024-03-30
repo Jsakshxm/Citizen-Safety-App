@@ -2,8 +2,9 @@ import React from "react";
 import Link from "next/link";
 
 const Navbar = () => {
+  
   return (
-    <header className="fixed flex w-full justify-between px-10 lg:px-24 py-4 lg:py-8  dark:bg-slate-800 dark:text-white bg-gradient-to-r  from-40% from-slate-800 via-slate-700 to-60% to-slate-800 bg-opacity-50 z-[20]">
+    <header className="fixed flex w-full justify-between items-center px-10 lg:px-24 py-4 lg:py-8  dark:bg-slate-800 dark:text-white bg-gradient-to-r  from-40% from-slate-800 via-slate-700 to-60% to-slate-800 bg-opacity-50 z-[20]">
       <div className="p-2">Citizen Safety App</div>
       <ul className="hidden lg:flex dark:text-slate-401 space-x-5  text-white ">
         <li className="hover:text-yellow-300 p-2">
@@ -29,11 +30,14 @@ const Navbar = () => {
           <Link href="/FraudReporting">Fraud Reporting</Link>
         </li>
       </ul>
-      <div>
-        <button className="dark:text-slate-400 text-white p-2 hover:text-white"><Link href="/Login">Login</Link></button>
-        <i className="fa-solid fa-bars"></i>
+      <div className="hidden lg:block">
+        <button className="dark:text-slate-400 text-white p-2 hover:text-white">
+          <Link href="/Login">Login</Link>
+        </button>
       </div>
-
+      <div className="lg:hidden text-2xl p-2">
+          <i className="fa-solid fa-bars "></i>
+        </div>
     </header>
   );
 };
