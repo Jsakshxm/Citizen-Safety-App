@@ -4,12 +4,15 @@ import { useEffect, useState } from "react";
 import supabase from "../../app/supabase"; // Assuming supabase.js is available in the app directory
 // import { data } from "autoprefixer";
 import Navbar from "../../components/Navbar/Navbar";
+import axios from "axios";
 
 const page = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResults, setSearchResults] = useState([]);
   const [searchQuery2, setSearchQuery2] = useState("");
   const [searchResults2, setSearchResults2] = useState([]);
+  const [searchQuery3, setSearchQuery3] = useState("");
+  const [searchResults3, setSearchResults3] = useState([]);
 
 
   useEffect(() => {
@@ -56,6 +59,26 @@ const page = () => {
     }
   }
 
+  const handlenumberlookup=()=>{
+    const fetchData = async () => {
+        try {
+          const response = await axios.get("https://www.ipqualityscore.com/api/json/phone/kx7QKc8tUvzvHvLerImZOgvFsywPnzQ5/"+searchQuery3);
+          setSearchResults3(response.data);
+          if (response.data == null || response.data == undefined || response.data == "") {
+            setSearchResults3(["No Analysis Found"]);
+        }
+        } catch (error) {
+          console.error('Error fetching data:', error);
+        }
+    };
+    if (searchQuery3 === "") {
+      setSearchResults3([]);
+    }
+    else{
+      fetchData();
+    }
+  }
+
   return (
     <>
       <Navbar></Navbar>
@@ -91,7 +114,7 @@ const page = () => {
             <ul className="h-[185px] text-white overflow-hidden px-2">
             {searchQuery2 &&
               searchResults2.map((result) => (
-                <div  key={result.id} className={` border rounded-md flex p-2 m-1 hover:bg-white hover:text-black cursor-pointer ${result.Analysis==="Fraud"?"text-red-300": result.Analysis==="Poetntial"}`}>
+                <div  key={result.id} className={` border rounded-md flex p-2 m-1 hover:bg-white hover:text-black cursor-pointer ${result.Analysis==="Fraud"?"text-red-300": result.Analysis==="Potential Risk" ?"text-yellow-300": result.Analysis==="No Risk"?"text-emerald-300":""}`}>
                     <div className={`pr-2 `}>{result.Analysis}</div>
                     {/* <div>{result["Principal Entity Name"]}</div> */}
                 </div>
@@ -100,14 +123,17 @@ const page = () => {
         </div>
 
         <div className="w-[300px] lg:w-[500px]">
-            <input type="tel" onChange={(e)=>{setSearchQuery2(e.target.value);}} className="p-2 rounded-md mx-2 w-full" name="" id="" placeholder="Enter Mobile Number"/>
-            <button onClick={handlesubmit} className="bg-blue-500 hover:bg-blue-700 rounded-3xl p-2 px-12 text-white text-lg m-2" type="submit">Submit</button>
+            <input type="tel" onChange={(e)=>{setSearchQuery3(e.target.value);}} className="p-2 rounded-md mx-2 w-full" name="" id="" placeholder="Enter Mobile Number"/>
+            <button onClick={handlenumberlookup} className="bg-blue-500 hover:bg-blue-700 rounded-3xl p-2 px-12 text-white text-lg m-2" type="submit">Submit</button>
 
-            <ul className="h-[185px] text-white overflow-hidden px-2">
-            {searchQuery2 &&
-              searchResults2.map((result) => (
+            <ul className="h-[185px] text-white overflow-hidden px-2 bg-black">
+            {searchQuery3 &&
+              searchResults3.map((result) => (
                 <div key={result.id} className=" border rounded-md flex p-2 m-1 hover:bg-white hover:text-black cursor-pointer">
-                    <div className="pr-2">{result.Analysis}</div>
+                    <p className="pr-2">{result.message}</p>
+                    <p className="pr-2">{result.spammer}</p>
+                    <p className="pr-2">{result.carrier}</p>
+                    <p className="pr-2">{result.line_type}</p>
                     {/* <div>{result["Principal Entity Name"]}</div> */}
                 </div>
               ))}
@@ -115,16 +141,14 @@ const page = () => {
         </div>
 
         <div className="text-white">
-          <h2>Sms Classification is done as:</h2>
+          <h2 className="text-lg">Sms Classification is done as:</h2>
           <ul>
-            <li>No Risk</li>
-            <li>Potential Risk</li>
-            <li>Fraud</li>
+            <li className="p-2 "> <i className="fa-solid fa-circle text-emerald-300 px-2 text-md"></i>No Risk</li>
+            <li  className="p-2"> <i className="fa-solid fa-circle text-yellow-300 px-2 text-md"></i>Potential Risk</li>
+            <li  className="p-2"> <i className="fa-solid fa-circle text-red-300 px-2 text-md"></i>Fraud</li>
           </ul>
         </div>
         </div>
-
-
       </div>
 
 

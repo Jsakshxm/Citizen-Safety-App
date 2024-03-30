@@ -31,7 +31,9 @@ const Navbar = () => {
       </ul>
       <div>
         <button className="dark:text-slate-400 text-white p-2 hover:text-white"><Link href="/Login">Login</Link></button>
+        <i className="fa-solid fa-bars"></i>
       </div>
+
     </header>
   );
 };
