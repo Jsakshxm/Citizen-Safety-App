@@ -5,7 +5,6 @@ import Footer from "@/components/Footer/Footer";
 import spam from "../assests/BlogFeaturedImage.gif";
 import Link from "next/link";
 import urlScanner from "../assests/url-icon.svg";
-import Bitcoin from "../assests/bitcoin.svg";
 import Sms from "../assests/mobile-sms-messages-icon.svg";
 import Cryptowallet from "../assests/crypto-wallet-bitcoin-icon.svg";
 import Education from "../assests/story-svgrepo-com.svg";
