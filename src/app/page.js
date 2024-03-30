@@ -130,7 +130,7 @@ export default function Home() {
       </div>
       <div className="bg2"></div>
 
-      <div className="flex w-full justify-center items-center px-4 lg:px-24 bg-darkbg gap-4">
+      <div className="grid grid-cols-1 lg:grid-cols-3 w-full justify-center items-center px-4 lg:px-24 bg-darkbg gap-4">
         <div className="bg-gray-100 p-10 rounded-md max-w-[500px] ">
         <h1 className="font-concert-one text-xl">Url Detection Backend Features</h1>
         <p>Spam Detection via :</p>
@@ -139,13 +139,14 @@ export default function Home() {
         <p>Extreme url redirects in huge quantity</p>
         <p>No About us page and agressive ads</p>
         </div>
-        <div className="bg-gray-100 p-10 rounded-md max-w-[500px] ">
-        <h1 className="font-concert-one text-xl"> Crypto Wallet detection Features</h1>
+        <div className="bg-gray-100 p-10 rounded-md max-w-[500px] h-full">
+        <h1 className="font-concert-one text-xl "> Crypto Wallet detection Features</h1>
         <p>Wallet Balance</p>
-        <p>Last Wallet Transtion</p>
-        <p>Any Wallet</p>
+        <p>Last Wallet Transaction</p>
+        <p>Wallet Spam Reports</p>
         </div>
       </div>
+      
 
       <Footer />
     </>

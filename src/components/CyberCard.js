@@ -2,7 +2,7 @@ import React from 'react';
 
 const CyberCard = ({ imgSrc, title, description, percentage,read }) => {
   return (
-    <div className='flex items-center p-4 bg-white rounded-lg shadow-md'>
+    <div className='flex items-center p-4 m-2 bg-white rounded-lg shadow-md'>
       <img src={imgSrc} alt={title} className='w-16 h-16 mr-4 rounded-full' />
       <div>
         <h2 className='text-xl font-semibold'>{title}</h2>
