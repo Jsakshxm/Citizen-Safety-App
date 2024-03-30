@@ -129,6 +129,8 @@ export default function Home() {
           />
         </div>
       </div>
+      <div className="bg2"></div>
+
       <Footer />
     </>
   );

@@ -10,8 +10,7 @@ const Footer = () => {
               Edugaurd Online Fraud Detection and Education
             </h2>
             <p className="text-gray-400">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis
-              justo vitae urna tincidunt cursus.
+            Empowering users with knowledge to detect and prevent online fraud. Stay vigilant, stay secure. 
             </p>
           </div>
           <div className="w-full md:w-1/3 lg:w-1/4 mb-4 md:mb-0">
