@@ -4,7 +4,12 @@ import mask from "../assests/mask.webp";
 import Footer from "@/components/Footer/Footer";
 import spam from "../assests/BlogFeaturedImage.gif";
 import Link from "next/link";
-import urlScanner from "../assests/url-icon.svg"
+import urlScanner from "../assests/url-icon.svg";
+import Bitcoin from "../assests/bitcoin.svg";
+import Sms from "../assests/mobile-sms-messages-icon.svg";
+import Cryptowallet from "../assests/crypto-wallet-bitcoin-icon.svg";
+import Education from "../assests/story-svgrepo-com.svg";
+import Fraudsvg from "../assests/fraud_detection.svg";
 
 export default function Home() {
   return (
@@ -45,27 +50,83 @@ export default function Home() {
         />
         <div className="bg absolute bottom-0"></div>
       </div>
-      <div className="bg-violet-500 flex flex-wrap px-4 lg:px-24 justify-center items-center">
+      <div className="bg-[#0066ff] flex flex-wrap px-4 lg:px-24 justify-center items-center">
         <div className="bg-gray-100 p-10 border m-10 rounded-md text-center">
           <h1>URL Scanner</h1>
-          <p>Try now</p>
+          <Link href="/SmsAnalysis">
+          <p className="py-2">
+          Explore now <i class="fa-solid fa-chevron-right animation"></i>
+          </p>
+          </Link>
           <Image
-          className="absolute translate-y-6 "
-      src={urlScanner}
-      width={100}
-      height={100}
-      alt="urlScanner"
-    />
+            className="absolute translate-y-6 "
+            src={urlScanner}
+            width={100}
+            height={100}
+            alt="urlScanner"
+          />
+        </div>
+        <div className="bg-gray-100 p-10 border m-10 rounded-md text-center relative">
+          <h1>Sms Analysis</h1>
+          <Link href="/SmsAnalysis">
+          <p className="py-2">
+          Explore now <i class="fa-solid fa-chevron-right animation"></i>
+          </p>
+          </Link>
+          <Image
+            className="absolute translate-y-0 left-1/2 -translate-x-1/2"
+            src={Sms}
+            width={75}
+            height={75}
+            alt="urlScanner"
+          />
+        </div>
 
+        <div className="bg-gray-100 p-10 border m-10 rounded-md text-center relative">
+          <h1>Cryptocurrency Wallet checker</h1>
+          <Link href="/CryptoWalletChecker">
+          <p className="py-2">
+          Explore now<i class="fa-solid fa-chevron-right animation"></i>
+          </p>
+          </Link>
+          <Image
+            className="absolute translate-y-0 left-1/2 -translate-x-1/2"
+            src={Cryptowallet}
+            width={75}
+            height={75}
+            alt="urlScanner"
+          />
         </div>
-        <div className="bg-gray-100 p-10 border m-10 rounded-md">
-          URL Scanner
+
+        <div className="bg-gray-100 p-10 border m-10 rounded-md text-center relative">
+          <h1>Fraud Reporting</h1>
+          <Link href="/FraudReporting">
+          <p className="py-2">
+          Explore now <i class="fa-solid fa-chevron-right animation"></i>
+          </p>
+          </Link>
+          <Image
+            className="absolute translate-y-0 left-1/2 -translate-x-1/2"
+            src={Fraudsvg}
+            width={75}
+            height={75}
+            alt="Cryptowallet"
+          />
         </div>
-        <div className="bg-gray-100 p-10 border m-10 rounded-md">
-          URL Scanner
-        </div>
-        <div className="bg-gray-100 p-10 border m-10 rounded-md">
-          URL Scanner
+        <div className="bg-gray-100 p-10 border m-10 rounded-md text-center relative">
+          <h1>Blogs and Stories</h1>
+          <Link href="/Education">
+          <p className="py-2">
+            Explore now <i class="fa-solid fa-chevron-right animation"></i>
+          </p>
+          </Link>
+          <Image
+            className="absolute translate-y-0 left-1/2 -translate-x-1/2"
+            src={Education}
+            width={75}
+            height={75}
+            alt="Education"
+          />
         </div>
       </div>
       <Footer />

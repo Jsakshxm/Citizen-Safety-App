@@ -2,9 +2,26 @@
 import React from "react";
 import Link from "next/link";
 import { useState } from "react";
+import { useEffect } from "react";
+import supabase from "../../app/supabase";
 
 const Navbar = () => {
+  const [userEmail, setUserEmail] = useState(null);
   const [meuopen, setmenuopen] = useState(false);
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      
+const { data: { user } } = await supabase.auth.getUser()
+      if (user) {
+        setUserEmail(user.email);
+      } else {
+        setUserEmail(null);
+      }
+    };
+
+    fetchUser();
+  }, []);
   
   const handlemenu = () => {
     setmenuopen(!meuopen);
@@ -38,9 +55,13 @@ const Navbar = () => {
           </li>
         </ul>
         <div className="hidden lg:block">
-          <button className="dark:text-slate-400 text-white p-2 hover:text-white">
-            <Link href="/Login">Login</Link>
-          </button>
+          {userEmail ? (
+            <div className="dark:text-slate-400 text-white p-2 hover:text-white  cursor-pointer">{userEmail}</div>
+          ) : (
+            <button className="dark:text-slate-400 text-white p-2 hover:text-white">
+              <Link href="/Login">Login</Link>
+            </button>
+          )}
         </div>
 
         <div onClick={handlemenu} className="lg:hidden text-2xl p-2">
@@ -71,6 +92,16 @@ const Navbar = () => {
           <li className={`hover:text-red-300 p-2  transition duration-[1050ms] ${meuopen?"":"-translate-x-full"}`}>
             <Link href="/FraudReporting">Fraud Reporting</Link>
           </li>
+          <div className="hidden lg:block">
+          {userEmail ? (
+
+            <li className={`hover:text-red-300 p-2  transition duration-[1050ms] ${meuopen?"":"-translate-x-full"} cursor-pointer`}>{userEmail}</li>
+          ) : (
+                      <li className={`hover:text-red-300 p-2  transition duration-[1050ms] ${meuopen?"":"-translate-x-full"}`}>
+            <Link href="/Login">Login</Link>
+          </li>
+          )}
+        </div>
         </ul>
       </div>
     </>
