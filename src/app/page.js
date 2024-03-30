@@ -140,9 +140,10 @@ export default function Home() {
         <p>No About us page and agressive ads</p>
         </div>
         <div className="bg-gray-100 p-10 rounded-md max-w-[500px] ">
-        <h1 className="font-concert-one text-xl"> Crypto Features</h1>
-        <p>Number of </p>
-        <p></p>
+        <h1 className="font-concert-one text-xl"> Crypto Wallet detection Features</h1>
+        <p>Wallet Balance</p>
+        <p>Last Wallet Transtion</p>
+        <p>Any Wallet</p>
         </div>
       </div>
 
